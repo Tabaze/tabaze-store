@@ -1,0 +1,10 @@
+[[redirects]]
+  from = "/erp/*"
+  to = "http://tabaze-erp.somee.com/erp/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
