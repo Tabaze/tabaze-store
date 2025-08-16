@@ -2,7 +2,9 @@
   for = "/*"
   [headers.values]
     Cache-Control = "no-cache"
-
+    
+[build.environment]
+  CI = "false"
 
 [[redirects]]
   from = "/*"

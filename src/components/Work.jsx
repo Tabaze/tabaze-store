@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { UilArrowRight, UilTimes } from '@iconscout/react-unicons';
+import { NavLink } from 'react-router-dom';
 
 const workData = [
   {
@@ -90,8 +91,8 @@ const Work = () => {
     setShowDetails(true);
   };
 
-  const filteredWork = filter === 'all' 
-    ? workData 
+  const filteredWork = filter === 'all'
+    ? workData
     : workData.filter(item => item.category === filter);
 
   return (
@@ -99,29 +100,29 @@ const Work = () => {
       <h2 className="section-title" data-heading="My Portfolio">Recent Works</h2>
 
       <div className="work-filters">
-        <span 
-          className={`work-item ${filter === 'all' ? 'active-work' : ''}`} 
+        <span
+          className={`work-item ${filter === 'all' ? 'active-work' : ''}`}
           onClick={() => handleFilter('all')}
           data-filter="all"
         >
           All
         </span>
-        <span 
-          className={`work-item ${filter === 'web' ? 'active-work' : ''}`} 
+        <span
+          className={`work-item ${filter === 'web' ? 'active-work' : ''}`}
           onClick={() => handleFilter('web')}
           data-filter="web"
         >
           Web
         </span>
-        <span 
-          className={`work-item ${filter === 'app' ? 'active-work' : ''}`} 
+        <span
+          className={`work-item ${filter === 'app' ? 'active-work' : ''}`}
           onClick={() => handleFilter('app')}
           data-filter="app"
         >
           App
         </span>
-        <span 
-          className={`work-item ${filter === 'design' ? 'active-work' : ''}`} 
+        <span
+          className={`work-item ${filter === 'design' ? 'active-work' : ''}`}
           onClick={() => handleFilter('design')}
           data-filter="design"
         >
@@ -162,7 +163,9 @@ const Work = () => {
                     <li>Created - <span>{portfolioDetails.created}</span></li>
                     <li>Technologies - <span>{portfolioDetails.technologies}</span></li>
                     <li>Role - <span>{portfolioDetails.role}</span></li>
-                    <li>View - <span><a href="#">{portfolioDetails.link}</a></span></li>
+                    <li>View - <span><NavLink to="/" className="nav-logo-text">
+                      {portfolioDetails.link}
+                    </NavLink></span></li>
                   </ul>
                 </div>
               </div>

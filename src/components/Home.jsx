@@ -1,5 +1,5 @@
 import React from 'react';
-import { UilUser, UilNavigator, UilFacebookMessenger, UilWhatsapp, UilEnvelopeEdit } from '@iconscout/react-unicons';
+import { UilUser, UilFacebookMessenger, UilWhatsapp, UilEnvelopeEdit } from '@iconscout/react-unicons';
 import { UilFacebookF, UilInstagram, UilTwitter } from '@iconscout/react-unicons';
 
 import background from '../assets/images/backgroud.png'; 
