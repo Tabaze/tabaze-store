@@ -1,8 +1,8 @@
-[[redirects]]
-  from = "/erp/*"
-  to = "http://tabaze-erp.somee.com/erp/:splat"
-  status = 200
-  force = true
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "no-cache"
+
 
 [[redirects]]
   from = "/*"
