@@ -18,19 +18,9 @@ const Navbar = () => {
 
 
       <div className="nav-menu" style={{ marginLeft: 'auto' }}>
-        <ul className="nav-list" style={{ display: 'flex', gap: '1rem' }}>
+        <ul className="nav-list min-nav-list" style={{ display: 'flex', gap: '1rem' ,flexdirection: "row"}}>
           <li className="nav-item">
-            <NavLink to="/account" className="nav-link">
-              <UilUser />
-            </NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink to="/wishlist" className="nav-link">
-              <UilHeart />
-            </NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink to="/cart" className="nav-link" style={{ position: 'relative' }}>
+            <NavLink to="/cart" className="nav-link" >
               <UilShoppingBag />
               <span style={{
                 position: 'absolute',
