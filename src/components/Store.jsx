@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { UilArrowRight, UilTimes, UilShoppingCart } from '@iconscout/react-unicons';
+import { UilArrowRight, UilShoppingCart } from '@iconscout/react-unicons';
 import { NavLink } from 'react-router-dom';
 
 const workData = [
@@ -124,41 +124,6 @@ const Store = () => {
         ))}
       </div>
 
-      {showDetails && portfolioDetails && (
-        <div className="portfolio-popup">
-          <div className="portfolio-popup-inner">
-            <div className="portfolio-popup-content grid">
-              <span className="portfolio-popup-close" onClick={() => setShowDetails(false)}>
-                <UilTimes />
-              </span>
-              <div className="pp-thumbnail">
-                <img src={portfolioDetails.img} alt="" className="portfolio-popup-img" />
-              </div>
-
-              <div className="portfolio-popup-info">
-                <div className="portfolio-popup-subtitle">Category - <span>{portfolioDetails.category}</span></div>
-                <div className="portfolio-popup-body">
-                  <h3 className="details-title">{portfolioDetails.detailsTitle}</h3>
-                  <p className="details-description">{portfolioDetails.description}</p>
-
-                  <ul className="details-info">
-                    <li>Added - <span>{portfolioDetails.created}</span></li>
-                    <li>Sizes - <span>{portfolioDetails.technologies}</span></li>
-                    <li>{portfolioDetails.role}</li>
-                    <li>
-                      Buy Now - <span>
-                        <NavLink to={portfolioDetails.link} className="nav-logo-text">
-                          {portfolioDetails.link}
-                        </NavLink>
-                      </span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </section>
   );
 };

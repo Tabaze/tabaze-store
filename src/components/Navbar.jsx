@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { UilBars, UilTimes, UilUser, UilShoppingBag, UilHeart } from '@iconscout/react-unicons';
+import { UilBars, UilTimes, UilShoppingBag } from '@iconscout/react-unicons';
 import logo from '../assets/images/tabaze-store.jpeg';
 
 const Navbar = () => {
