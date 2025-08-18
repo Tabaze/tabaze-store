@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { UilBars, UilTimes, UilShoppingBag } from '@iconscout/react-unicons';
+import { motion, AnimatePresence } from "framer-motion";
+import { UilBars, UilTimes } from '@iconscout/react-unicons';
 import logo from '../assets/images/tabaze-store.jpeg';
 
 const Navbar = () => {
@@ -11,37 +12,31 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Mobile Toggle (unchanged) */}
       <div className="nav-toggle" id="nav-toggle" onClick={toggleSidebar}>
-        <UilBars />
+        <AnimatePresence mode="wait" initial={false}>
+          {isSidebarOpen ? (
+            <motion.div
+              key="close"
+              initial={{ opacity: 0, rotate: -90, scale: 0.5 }}
+              animate={{ opacity: 1, rotate: 0, scale: 1 }}
+              exit={{ opacity: 0, rotate: 90, scale: 0.5 }}
+              transition={{ duration: 0.3 }}
+            >
+              <UilTimes />
+            </motion.div>
+          ) : (
+            <motion.div
+              key="bars"
+              initial={{ opacity: 0, rotate: 90, scale: 0.5 }}
+              animate={{ opacity: 1, rotate: 0, scale: 1 }}
+              exit={{ opacity: 0, rotate: -90, scale: 0.5 }}
+              transition={{ duration: 0.3 }}
+            >
+              <UilBars />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
-
-
-      <div className="nav-menu" style={{ marginLeft: 'auto' }}>
-        <ul className="nav-list min-nav-list" style={{ display: 'flex', gap: '1rem' ,flexdirection: "row"}}>
-          <li className="nav-item">
-            <NavLink to="/cart" className="nav-link" >
-              <UilShoppingBag />
-              <span style={{
-                position: 'absolute',
-                top: '-8px',
-                right: '-8px',
-                background: '#ff6b6b',
-                color: 'white',
-                borderRadius: '50%',
-                width: '18px',
-                height: '18px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: '0.7rem'
-              }}>0</span>
-            </NavLink>
-          </li>
-        </ul>
-      </div>
-
-      {/* Sidebar (modified for clothing store) */}
       <aside className={`sidebar ${isSidebarOpen ? 'show-sidebar' : ''}`} id="sidebar">
         <nav className="nav">
           <div className="nav-logo">
@@ -57,9 +52,9 @@ const Navbar = () => {
             <div className="menu">
               <ul className="nav-list">
                 <li className="nav-item">
-                  <NavLink 
-                    to="/" 
-                    className={({ isActive }) => 
+                  <NavLink
+                    to="/"
+                    className={({ isActive }) =>
                       isActive ? "nav-link active-link" : "nav-link"
                     }
                     onClick={closeSidebar}
@@ -69,9 +64,9 @@ const Navbar = () => {
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink 
-                    to="/shop" 
-                    className={({ isActive }) => 
+                  <NavLink
+                    to="/shop"
+                    className={({ isActive }) =>
                       isActive ? "nav-link active-link" : "nav-link"
                     }
                     onClick={closeSidebar}
@@ -80,9 +75,9 @@ const Navbar = () => {
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink 
-                    to="/new" 
-                    className={({ isActive }) => 
+                  <NavLink
+                    to="/new"
+                    className={({ isActive }) =>
                       isActive ? "nav-link active-link" : "nav-link"
                     }
                     onClick={closeSidebar}
@@ -91,9 +86,9 @@ const Navbar = () => {
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink 
-                    to="/sale" 
-                    className={({ isActive }) => 
+                  <NavLink
+                    to="/sale"
+                    className={({ isActive }) =>
                       isActive ? "nav-link active-link sale-link" : "nav-link sale-link"
                     }
                     onClick={closeSidebar}
@@ -102,9 +97,9 @@ const Navbar = () => {
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink 
-                    to="/about" 
-                    className={({ isActive }) => 
+                  <NavLink
+                    to="/about"
+                    className={({ isActive }) =>
                       isActive ? "nav-link active-link" : "nav-link"
                     }
                     onClick={closeSidebar}
@@ -113,9 +108,9 @@ const Navbar = () => {
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink 
-                    to="/contact" 
-                    className={({ isActive }) => 
+                  <NavLink
+                    to="/contact"
+                    className={({ isActive }) =>
                       isActive ? "nav-link active-link" : "nav-link"
                     }
                     onClick={closeSidebar}

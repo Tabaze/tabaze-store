@@ -118,6 +118,9 @@ img{
 }
 .purchase-info{
     margin: 1.5rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .purchase-info input,
 .purchase-info .btn{
@@ -127,7 +130,6 @@ img{
     padding: 0.45rem 0.8rem;
     outline: 0;
     margin-right: 0.2rem;
-    margin-bottom: 1rem;
 }
 .purchase-info input{
     width: 60px;

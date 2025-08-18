@@ -10,19 +10,17 @@ import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import "./App.css"
 import ProductCard from './components/product/ProductCard';
+import Cart from './components/CartSidebar/Cart';
 
 function App() {
   return (
     <Router>
       <div className="App">
         <Navbar />
+        <Cart /> {/* ✅ Cart added like Navbar (always visible) */}
         <main className="main">
           <Routes>
-            <Route path="/" element={
-              <>
-                <Home />
-              </>
-            } />
+            <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/skills" element={<Skills />} />
             <Route path="/shop" element={<Store />} />
