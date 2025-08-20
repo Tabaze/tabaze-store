@@ -1,14 +1,14 @@
 import React from 'react';
-import { UilUser, UilFacebookMessenger, UilWhatsapp, UilEnvelopeEdit } from '@iconscout/react-unicons';
+import { UilFacebookMessenger, UilWhatsapp, UilEnvelopeEdit } from '@iconscout/react-unicons';
 import { UilFacebookF, UilInstagram, UilTwitter } from '@iconscout/react-unicons';
 
-import background from '../assets/images/backgroud.png'; 
+import background from '../assets/images/backgroud.png';
 const Home = () => {
   return (
     <section className="home section" id="home">
       <div className="home-container container grid">
         <div className="home-social">
-          <span className="home-social-follow">Follow Me</span>
+          <span className="home-social-follow">Follow Us</span>
           <div className="home-social-links">
             <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="home-social-link">
               <UilFacebookF />
@@ -22,16 +22,21 @@ const Home = () => {
           </div>
         </div>
 
-        <img src={background} alt="" className="home-img" />   
+        <img src={background} alt="" className="home-img" />
 
         <div className="home-data">
           <h1 className="home-title">Tabaze Store</h1>
           <h3 className="home-subtitle">Clothing Store</h3>
           <p className="home-description">We have the greatest clothes with unique designs</p>
-          <a href="#about" className="button">
-            <UilUser className="button-icon" />
-            More About us!
-          </a>
+          <div className="home-buttons">
+            <a href="/shop" className="button">
+              Shop Now
+            </a>
+            <a href="/new" className="button button-outline">
+              New Arrivals
+            </a>
+          </div>
+
         </div>
 
         <div className="my-info">
