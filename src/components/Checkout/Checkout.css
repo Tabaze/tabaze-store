@@ -18,13 +18,13 @@ h6 {
   line-height: 1.4;
 }
 
-h1 {
+.checkout h1 {
   font-size: 42px;
   color: #6d819c;
   text-align: left;
 }
 
-h2 {
+.checkout h2 {
   font-size: 28px;
   letter-spacing: -2px;
   color: #6d819c;
@@ -32,14 +32,14 @@ h2 {
   line-height: 2.8;
 }
 
-h3 {
+.checkout h3 {
   font-size: 16px;
   color: #6d819c;
   letter-spacing: 1px;
   text-align: left;
 }
 
-h4 {
+.checkout h4 {
   font-size: 16px;
   color: #7495aa;
   letter-spacing: 1px;
@@ -47,7 +47,7 @@ h4 {
   line-height: 2;
 }
 
-h5 {
+.checkout h5 {
   font-size: 11px;
   font-weight: 700;
   color: #c9d6de;
