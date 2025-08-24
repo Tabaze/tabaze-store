@@ -22,7 +22,8 @@ function AppContent() {
   return (
     <div className="App">
       <Navbar />
-      <Cart /> {/* Always visible */}
+      
+      {!hideFooter && <Cart />}
       <main className="main">
         <Routes>
           <Route path="/" element={<Home />} />

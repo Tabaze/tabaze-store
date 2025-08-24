@@ -72,5 +72,19 @@ export const workData = [
         link: '/product/4'
     }
 ];
+export var cartCheckOut = [];
 
-export var cartCheckOut = []
+
+let subscribers = [];
+
+export function subscribeCart(callback) {
+    subscribers.push(callback);
+}
+
+export function unsubscribeCart(callback) {
+    subscribers = subscribers.filter(cb => cb !== callback);
+}
+
+export function notifyCartUpdate() {
+    subscribers.forEach(cb => cb([...cartCheckOut]));
+}

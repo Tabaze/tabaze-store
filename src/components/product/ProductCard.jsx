@@ -5,7 +5,7 @@ import { workData } from "../../data/workData"; // your data file
 import "./ProductCard.css";
 
 const ProductCard = () => {
-    const { id } = useParams(); // get id from URL
+    const { id } = useParams();
     const product = workData.find((item) => item.id.toString() === id);
 
     if (!product) {

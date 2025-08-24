@@ -1,21 +1,34 @@
 import React, { useState } from 'react';
-import { UilArrowRight, UilTimes, UilShoppingCart } from '@iconscout/react-unicons';
+import { UilArrowRight, UilShoppingCart } from '@iconscout/react-unicons';
 import { NavLink } from 'react-router-dom';
-import { workData } from '../data/workData';
-
+import { workData, cartCheckOut } from '../data/workData';
 
 const Store = () => {
   const [filter, setFilter] = useState('all');
-  const [portfolioDetails, setPortfolioDetails] = useState(null);
-  const [showDetails, setShowDetails] = useState(false);
 
   const handleFilter = (category) => {
     setFilter(category);
   };
 
-  const handleShowDetails = (item) => {
-    setPortfolioDetails(item);
-    setShowDetails(true);
+
+  const handleAddToCart = (product) => {
+    // check if product already exists
+    const cartItem = cartCheckOut.find((item) => item.id === product.id);
+
+    if (cartItem) {
+      // update quantity + subtotal
+      cartItem.quantity += 1;
+      cartItem.subtotal = cartItem.price * cartItem.quantity;
+    } else {
+      // add new product
+      cartCheckOut.push({
+        ...product,
+        quantity: 1,
+        subtotal: product.price,
+      });
+    }
+
+    console.log("Cart:", cartCheckOut); // just to debug
   };
 
   const filteredWork = filter === 'all'
@@ -63,53 +76,19 @@ const Store = () => {
             <img src={item.thumbnail} alt="" className="work-img" />
             <h3 className="work-title">{item.title}</h3>
             <div className="buttons-actions">
-              <NavLink to={item.link} className="button selected" onClick={() => handleShowDetails(item)}>
+              <NavLink to={item.link} className="button selected">
                 View <UilArrowRight className="work-button-icon" />
               </NavLink>
-              <button className="button selected">
+              <button
+                className="button selected"
+                onClick={() => handleAddToCart(item)}
+              >
                 <UilShoppingCart className="work-button-icon" />
               </button>
             </div>
-
           </div>
         ))}
       </div>
-
-      {showDetails && portfolioDetails && (
-        <div className="portfolio-popup">
-          <div className="portfolio-popup-inner">
-            <div className="portfolio-popup-content grid">
-              <span className="portfolio-popup-close" onClick={() => setShowDetails(false)}>
-                <UilTimes />
-              </span>
-              <div className="pp-thumbnail">
-                <img src={portfolioDetails.img} alt="" className="portfolio-popup-img" />
-              </div>
-
-              <div className="portfolio-popup-info">
-                <div className="portfolio-popup-subtitle">Category - <span>{portfolioDetails.category}</span></div>
-                <div className="portfolio-popup-body">
-                  <h3 className="details-title">{portfolioDetails.detailsTitle}</h3>
-                  <p className="details-description">{portfolioDetails.description}</p>
-
-                  <ul className="details-info">
-                    <li>Added - <span>{portfolioDetails.created}</span></li>
-                    <li>Sizes - <span>{portfolioDetails.technologies}</span></li>
-                    <li>{portfolioDetails.role}</li>
-                    <li>
-                      Buy Now - <span>
-                        <NavLink to={portfolioDetails.link} className="nav-logo-text">
-                          {portfolioDetails.link}
-                        </NavLink>
-                      </span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </section>
   );
 };
