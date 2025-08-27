@@ -16,13 +16,12 @@ import "./App.css";
 function AppContent() {
   const location = useLocation();
 
-  // Hide footer on /checkout page
   const hideFooter = location.pathname === '/checkout';
 
   return (
     <div className="App">
       <Navbar />
-      
+
       {!hideFooter && <Cart />}
       <main className="main">
         <Routes>

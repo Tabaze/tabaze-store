@@ -72,6 +72,37 @@ export const workData = [
         link: '/product/4'
     }
 ];
+export const categories = [
+    {
+        id: 1,
+        title: "Men",
+        desc: "Style essentials for every occasion.",
+        thumb: "https://images.unsplash.com/photo-1589902860314-e910697dea18?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        bg: "https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?w=480",
+    },
+    {
+        id: 2,
+        title: "Women",
+        desc: "Trendy and timeless fashion pieces.",
+        bg: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c",
+        thumb: "https://images.unsplash.com/photo-1551799517-eb8f03cb5e6a?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+    {
+        id: 3,
+        title: "Shoes",
+        desc: "From sneakers to formal footwear.",
+        bg: "https://images.unsplash.com/photo-1529810313688-44ea1c2d81d3?q=80&w=941&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // verified bg
+        thumb: "https://images.unsplash.com/photo-1512374382149-233c42b6a83b?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" // verified thumb
+    },
+    {
+        id: 4,
+        title: "Hoodies",
+        desc: "Complete your look with bags, belts, and more.",
+        bg: "https://images.unsplash.com/photo-1512400930990-e0bc0bd809df?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        thumb: "https://images.unsplash.com/photo-1673092147872-5ddb03194341?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+];
+
 export var cartCheckOut = [];
 
 
