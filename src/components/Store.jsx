@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { UilArrowRight, UilShoppingCart } from '@iconscout/react-unicons';
 import { NavLink } from 'react-router-dom';
-import { workData, cartCheckOut } from '../data/workData';
+import { workData, cartCheckOut, categories } from '../data/workData';
 
 const Store = () => {
   const [filter, setFilter] = useState('all');
@@ -10,17 +10,13 @@ const Store = () => {
     setFilter(category);
   };
 
-
   const handleAddToCart = (product) => {
-    // check if product already exists
     const cartItem = cartCheckOut.find((item) => item.id === product.id);
 
     if (cartItem) {
-      // update quantity + subtotal
       cartItem.quantity += 1;
       cartItem.subtotal = cartItem.price * cartItem.quantity;
     } else {
-      // add new product
       cartCheckOut.push({
         ...product,
         quantity: 1,
@@ -28,17 +24,19 @@ const Store = () => {
       });
     }
 
-    console.log("Cart:", cartCheckOut); // just to debug
+    console.log("Cart:", cartCheckOut); 
   };
 
-  const filteredWork = filter === 'all'
-    ? workData
-    : workData.filter(item => item.category === filter);
+  const filteredWork =
+    filter === 'all' ? workData : workData.filter((item) => item.category === filter);
 
   return (
     <section className="work section" id="work">
-      <h2 className="section-title" data-heading="Our Collection">Latest Products</h2>
+      <h2 className="section-title" data-heading="Our Collection">
+        Latest Products
+      </h2>
 
+      {/* ✅ Dynamically render categories */}
       <div className="work-filters">
         <div
           className={`work-item ${filter === 'all' ? 'active-work' : ''}`}
@@ -47,33 +45,22 @@ const Store = () => {
         >
           All
         </div>
-        <div
-          className={`work-item ${filter === 'men' ? 'active-work' : ''}`}
-          onClick={() => handleFilter('men')}
-          data-filter="men"
-        >
-          Men
-        </div>
-        <div
-          className={`work-item ${filter === 'women' ? 'active-work' : ''}`}
-          onClick={() => handleFilter('women')}
-          data-filter="women"
-        >
-          Women
-        </div>
-        <div
-          className={`work-item ${filter === 'accessories' ? 'active-work' : ''}`}
-          onClick={() => handleFilter('accessories')}
-          data-filter="accessories"
-        >
-          Accessories
-        </div>
+        {categories.map((cat) => (
+          <div
+            key={cat.id}
+            className={`work-item ${filter === cat.title.toLowerCase() ? 'active-work' : ''}`}
+            onClick={() => handleFilter(cat.title.toLowerCase())}
+            data-filter={cat.title.toLowerCase()}
+          >
+            {cat.title}
+          </div>
+        ))}
       </div>
 
       <div className="work-container container grid">
         {filteredWork.map((item) => (
           <div className={`work-card mix ${item.category}`} key={item.id}>
-            <img src={item.thumbnail} alt="" className="work-img" />
+            <img src={item.thumbnail} alt={item.title} className="work-img" />
             <h3 className="work-title">{item.title}</h3>
             <div className="buttons-actions">
               <NavLink to={item.link} className="button selected">

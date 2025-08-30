@@ -1,27 +1,29 @@
 export const workData = [
     {
         id: 1,
-        category: 'men',
-        thumbnail: "https://i.postimg.cc/4dPnHqjW/shirt-men.jpg",
+        category: "men",
+        thumbnail: require("../assets/images/the-boston-gray.jpeg"),
         images: [
-            'https://i.postimg.cc/4dPnHqjW/shirt-men.jpg',
-            'https://i.postimg.cc/zX6wM7qF/shirt-men-2.jpg',
-            'https://i.postimg.cc/tJf9kKw8/shirt-men-3.jpg'
+            require("../assets/images/the-boston-gray.jpeg"),
+            require("../assets/images/the-boston-red.jpeg"),
+            require("../assets/images/the-boston-blue.jpeg"),
+            require("../assets/images/the-boston-green.jpeg"),
         ],
-        title: 'Classic Blue Shirt',
-        detailsTitle: 'Men’s Classic Blue Shirt',
+        title: "The Boston",
+        detailsTitle: "The Boston",
         description:
-            'A timeless slim-fit shirt made with 100% cotton, perfect for casual and formal occasions.',
-        created: '22 Apr 2025',
-        technologies: 'Sizes: M, L, XL',
+            "A timeless slim-fit shirt made with 100% cotton, perfect for casual and formal occasions.",
+        created: "22 Apr 2025",
+        sizes: "Sizes: M, L, XL",
         price: 45,
-        link: '/product/1'
+        link: "/product/1",
     },
     {
         id: 2,
         category: 'women',
         thumbnail: "https://i.postimg.cc/vH7pM4RL/dress-women.jpg",
         images: [
+            "https://i.postimg.cc/vH7pM4RL/dress-women.jpg",
             'https://i.postimg.cc/vH7pM4RL/dress-women.jpg',
             'https://i.postimg.cc/yxVn5R6C/dress-women-2.jpg',
             'https://i.postimg.cc/d0HP6K7z/dress-women-3.jpg'
@@ -31,7 +33,7 @@ export const workData = [
         description:
             'Lightweight and breathable floral dress, ideal for summer outings.',
         created: '15 Apr 2025',
-        technologies: 'Sizes: S, M, L',
+        sizes: 'Sizes: S, M, L',
         price: 65,
         link: '/product/2'
     },
@@ -40,6 +42,7 @@ export const workData = [
         category: 'accessories',
         thumbnail: "https://i.postimg.cc/7LPxTt9Y/bag.jpg",
         images: [
+            "https://i.postimg.cc/7LPxTt9Y/bag.jpg",
             'https://i.postimg.cc/7LPxTt9Y/bag.jpg',
             'https://i.postimg.cc/GtF8Z7bt/bag-2.jpg',
             'https://i.postimg.cc/zD0X7h6k/bag-3.jpg'
@@ -49,7 +52,7 @@ export const workData = [
         description:
             'Stylish handbag crafted from genuine leather with gold-tone details.',
         created: '10 Apr 2025',
-        technologies: 'One Size',
+        sizes: 'One Size',
         price: 120,
         link: '/product/3'
     },
@@ -58,6 +61,7 @@ export const workData = [
         category: 'men',
         thumbnail: "https://i.postimg.cc/sxKvy0tB/jacket.jpg",
         images: [
+            "https://i.postimg.cc/sxKvy0tB/jacket.jpg",
             'https://i.postimg.cc/sxKvy0tB/jacket.jpg',
             'https://i.postimg.cc/fT7gNwmc/jacket-2.jpg',
             'https://i.postimg.cc/7Y9C7xCg/jacket-3.jpg'
@@ -67,7 +71,7 @@ export const workData = [
         description:
             'A classic denim jacket with a modern cut for a stylish look.',
         created: '4 Apr 2025',
-        technologies: 'Sizes: M, L, XL',
+        sizes: 'Sizes: M, L, XL',
         price: 75,
         link: '/product/4'
     }
