@@ -548,6 +548,11 @@ input {
   margin-bottom: var(--mb1);
 }
 
+.work-details {
+  display: flex;
+  justify-content: space-between;
+}
+
 .work-title {
   font-size: var(--normal-font-size);
   font-weight: var(--font-medium);

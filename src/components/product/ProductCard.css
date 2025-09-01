@@ -292,6 +292,9 @@ img{
 .product-card .container .imgbox .size li:hover{
     transform: scale(1.1) translateY(-8px);
 }
+.product-card .container .imgbox .size li.active{
+    border: 2px solid var(--skin-color);
+}
 .product-card .container .imgbox .btn{
   position: absolute;
   bottom: -28px;

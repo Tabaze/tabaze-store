@@ -24,7 +24,7 @@ const Store = () => {
       });
     }
 
-    console.log("Cart:", cartCheckOut); 
+    console.log("Cart:", cartCheckOut);
   };
 
   const filteredWork =
@@ -36,7 +36,6 @@ const Store = () => {
         Latest Products
       </h2>
 
-      {/* ✅ Dynamically render categories */}
       <div className="work-filters">
         <div
           className={`work-item ${filter === 'all' ? 'active-work' : ''}`}
@@ -61,9 +60,12 @@ const Store = () => {
         {filteredWork.map((item) => (
           <div className={`work-card mix ${item.category}`} key={item.id}>
             <img src={item.thumbnail} alt={item.title} className="work-img" />
-            <h3 className="work-title">{item.title}</h3>
+            <div className='work-details'>
+              <h3 className="work-title">{item.title}</h3>
+              <h3 className="work-price">{item.price.toFixed(2)}</h3>
+            </div>
             <div className="buttons-actions">
-              <NavLink to={item.link} className="button selected">
+              <NavLink to={`/product/${item.id}`} className="button selected">
                 View <UilArrowRight className="work-button-icon" />
               </NavLink>
               <button

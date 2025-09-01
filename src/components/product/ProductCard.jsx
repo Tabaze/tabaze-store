@@ -1,18 +1,22 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { UilShoppingCart } from "@iconscout/react-unicons";
-import { workData } from "../../data/workData"; // your data file
+import { workData } from "../../data/workData";
 import "./ProductCard.css";
 
 const ProductCard = () => {
     const { id } = useParams();
     const product = workData.find((item) => item.id.toString() === id);
 
-    // set initial image (first image of product)
     const [mainImage, setMainImage] = useState(
         product?.images[0] || ""
     );
 
+    const [selectedSize, setSelectedSize] = useState(null);
+
+    const handleSelectSize = (size) => {
+        setSelectedSize(size);
+    };
     if (!product) {
         return (
             <h2 style={{ textAlign: "center", marginTop: "2rem" }}>
@@ -40,11 +44,15 @@ const ProductCard = () => {
 
                             <ul className="size">
                                 <span>Size</span>
-                                <li>M</li>
-                                <li>S</li>
-                                <li>L</li>
-                                <li>XL</li>
-                                <li>XXL</li>
+                                {product.sizes.split(",").map((e, index) => (
+                                    <li
+                                        key={index}
+                                        className={selectedSize === e ? "active" : ""}
+                                        onClick={() => handleSelectSize(e)}
+                                    >
+                                        {e}
+                                    </li>
+                                ))}
                             </ul>
 
                         </div>
